@@ -5,6 +5,49 @@ A comprehensive SQL project analyzing employee performance, demographics, salari
 This project uses an employee dataset containing demographic, employment, performance, and payroll information.
 Below is the schema reconstructed from your sample row.
 
+## ✅ SQL Table Schema
+```sql
+CREATE TABLE employee (
+    Employee_Name            VARCHAR(100),
+    EmpID                    INT,
+    MarriedID                INT,
+    MaritalStatusID          INT,
+    GenderID                 INT,
+    EmpStatusID              INT,
+    DeptID                   INT,
+    PerfScoreID              INT,
+    FromDiversityJobFairID   INT,
+    Salary                   INT,
+    Termd                    INT,
+    PositionID               INT,
+    Position                 VARCHAR(100),
+    State                    VARCHAR(100),
+    Zip                      INT,
+    DOB                      DATE,
+    Sex                      VARCHAR(100),
+    MaritalDesc              VARCHAR(100),
+    CitizenDesc              VARCHAR(100),
+    HispanicLatino           VARCHAR(100),
+    RaceDesc                 VARCHAR(100),
+    DateofHire               DATE,
+    DateofTermination        DATE,
+    TermReason               VARCHAR(100),
+    EmploymentStatus         VARCHAR(100),
+    Department               VARCHAR(100),
+    ManagerName              VARCHAR(100),
+    ManagerID                INT,
+    RecruitmentSource        VARCHAR(100),
+    PerformanceScore         VARCHAR(100),
+    EngagementSurvey         NUMERIC,
+    EmpSatisfaction          NUMERIC,
+    SpecialProjectsCount     INT,
+    LastPerformanceReview_Date DATE,
+    DaysLateLast30           INT,
+    Absences                 INT
+);
+
+```
+
 ## 1.Marital Status Distribution of Employees
 ```sql
 -- Solution 1: Count married vs non-married employees
