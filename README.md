@@ -45,6 +45,7 @@ Below is the schema reconstructed from your sample row.
 | dayslate_last30          | INTEGER   |
 | no_of_dependents         | INTEGER   |
 
+## 1.Marital Status Distribution of Employees
 ```sql
 -- Solution 1: Count married vs non-married employees
 SELECT 
@@ -53,7 +54,7 @@ SELECT
 FROM employee
 GROUP BY marriedid;
 ```
-
+## 2.Employee Salary Classification (Low / Medium / High)
 ```sql
 -- Solution 2: Salary classification into low/medium/high
 SELECT 
@@ -66,7 +67,7 @@ SELECT
     END AS salary_class
 FROM employee;
 ```
-
+## 3.Employee Count by Job Position
 ```sql
 -- Solution 3: Count employees in each position
 SELECT 
@@ -75,7 +76,7 @@ SELECT
 FROM employee
 GROUP BY positions;
 ```
-
+## 4.Employees With Highest Absences
 ```sql
 -- Solution 4: Show employees with highest absences
 SELECT 
@@ -84,7 +85,7 @@ SELECT
 FROM employee
 ORDER BY absences DESC;
 ```
-
+## 5.Low-Performance Employees and Their Recruitment Sources
 ```sql
 -- Solution 5: Employees with low performance ("Needs Improvement")
 SELECT 
@@ -94,7 +95,7 @@ SELECT
 FROM employee
 WHERE performancescore = 'Needs Improvement';
 ```
-
+## 6.Best and Worst Recruitment Sources Based on Performance
 ```sql
 -- Solution 6A: Count bad recruitment sources (Needs Improvement)
 SELECT 
@@ -112,7 +113,7 @@ FROM employee
 WHERE performancescore = 'Fully Meets'
 GROUP BY recruitmentsource;
 ```
-
+## 7.Average Satisfaction Score by Department
 ```sql
 -- Solution 7: Average satisfaction by department (correct method)
 SELECT 
@@ -122,7 +123,7 @@ FROM employee
 GROUP BY department
 ORDER BY depart_satisfied DESC;
 ```
-
+## 8.Salary Difference Between Consecutive Employees
 ```sql-- Solution 8: Salary difference from next employee (sorted high → low)
 SELECT 
     employee_name, 
@@ -132,7 +133,7 @@ SELECT
 FROM employee;
 
 ```
-
+## 9.Employees Earning Above Department Average Salary
 ```sql
 -- Solution 9: Employees earning above department average
 WITH avg_salary AS (
@@ -155,7 +156,7 @@ WHERE e.salary > a.avg_salary
 LIMIT 10;
 ```
 
-
+## 10.Cleaning Invalid Date of Birth Entries
 ```sql
 -- Solution 10: Clean incorrect date of birth entries
 UPDATE employee
@@ -163,7 +164,7 @@ SET dob = NULL
 WHERE dob > '2007-01-01';
 
 ```
-
+## 11.Low-Performance Employees Above Age 40
 ```sql
 -- Solution 11: Employees age > 40 with low performance
 SELECT 
@@ -174,7 +175,7 @@ FROM employee
 WHERE age(dob) > INTERVAL '40 years'
   AND performancescore = 'Needs Improvement';
 ```
-
+## 12.Employees With Absences Above Adjusted Average
 ```sql
 -- Solution 12: Absentees above adjusted average (AVG + 3)
 SELECT 
@@ -187,7 +188,7 @@ WHERE absences > (
     )
 ORDER BY absences DESC;
 ```
-
+## 13.Department-Wise Absences Above Average
 ```sql
 -- Solution 13: Absences above department average
 WITH avg_absences AS (
@@ -209,7 +210,7 @@ JOIN avg_absences a
     ON e.department = a.department
 WHERE e.absences > a.avg_absences;
 ```
-
+## 14.Female Employees by Marital Status
 ```sql
 -- Solution 14: Female employees by marital status
 SELECT 
@@ -221,7 +222,7 @@ WHERE sex = 'F'
   AND maritaldesc IN ('Single', 'Married')
 GROUP BY sex, maritaldesc, employee_name;
 ```
-
+## 15. Salary Increase for Widowed and Divorced Female Employees
 ```sql
 -- Solution 15: Salary increment (+5%) for widowed/divorced women
 SELECT 
