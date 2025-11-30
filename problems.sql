@@ -1,4 +1,3 @@
-```sql
   1.Marital Status Distribution of Employees
   
   2.Employee Salary Classification (Low / Medium / High)
@@ -28,4 +27,3 @@
   14.Female Employees by Marital Status
   
   15.Salary Increase for Widowed and Divorced Female Employees
-```
